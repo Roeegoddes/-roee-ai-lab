@@ -1,0 +1,12 @@
+.lesson-title {
+  font-size: var(--text-xl);
+  margin-block-end: var(--space-8);
+}
+
+.lesson-body {
+  max-width: var(--measure);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.lesson-loading { color: var(--ink-3); }

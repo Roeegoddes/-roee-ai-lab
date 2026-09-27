@@ -1,0 +1,92 @@
+/*
+  Design tokens — the single source of truth for color, type and spacing.
+  Components use these variables; they never hard-code values.
+
+  Color has two layers:
+  1. Hues: a restrained categorical palette (no purple). Each hue has a
+     strong value for lines/text and a tint for fills behind content.
+  2. Roles: what a color MEANS in the UI. Components refer to roles.
+     Lessons assign concept meanings to hues explicitly (e.g. "input = blue")
+     and keep them consistent within the lesson.
+*/
+:root {
+  /* Surfaces & ink */
+  --paper: #f5f3ee;
+  --surface: #fdfcf9;
+  --surface-sunken: #ece9e1;
+  --ink: #16181d;
+  --ink-2: #474c56;
+  --ink-3: #737883;
+  --rule: #d6d1c5;
+  --rule-strong: #a9a397;
+
+  /* Hues — strong (lines, text, marks) */
+  --blue: #2458c4;
+  --teal: #0d8578;
+  --amber: #c7850a;
+  --vermilion: #cf4424;
+  --green: #3a8a2e;
+  --slate: #4f6477;
+
+  /* Hues — tint (fills, highlighted regions) */
+  --blue-tint: #e3ebfa;
+  --teal-tint: #dcf1ed;
+  --amber-tint: #faeed2;
+  --vermilion-tint: #fbe4dd;
+  --green-tint: #e3f1de;
+  --slate-tint: #e4e9ee;
+
+  /* Roles */
+  --interactive: var(--blue);          /* things you can click / drag */
+  --interactive-tint: var(--blue-tint);
+  --focus: var(--blue);
+  --highlight: var(--amber);           /* "look here" in an explanation */
+  --highlight-tint: var(--amber-tint);
+  --correct: var(--green);
+  --correct-tint: var(--green-tint);
+  --incorrect: var(--vermilion);
+  --incorrect-tint: var(--vermilion-tint);
+  --neutral: var(--slate);
+  --neutral-tint: var(--slate-tint);
+
+  /* Type */
+  --font-sans: 'IBM Plex Sans Hebrew', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --leading-tight: 1.2;
+  --leading-body: 1.65;
+
+  /* Space (4px grid) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Shape — sharp, instrument-like */
+  --radius: 2px;
+  --border: 1px solid var(--rule);
+  --border-strong: 1px solid var(--rule-strong);
+
+  /* Layout */
+  --measure: 68ch;          /* comfortable reading width */
+  --page-max: 72rem;
+  --gutter: var(--space-4);
+
+  /* Motion — durations for explanatory animation */
+  --dur-fast: 120ms;
+  --dur-step: 320ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (min-width: 48rem) {
+  :root { --gutter: var(--space-8); }
+}

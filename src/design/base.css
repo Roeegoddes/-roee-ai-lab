@@ -1,0 +1,62 @@
+/*
+  Base styles. Use logical properties (inline/block, start/end) instead of
+  left/right so layout is correct in RTL without special cases.
+*/
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+
+p { margin: 0; }
+
+a {
+  color: var(--interactive);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+code, kbd, samp, pre { font-family: var(--font-mono); font-size: 0.925em; }
+
+/* Numbers and readouts align in columns. */
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* Latin fragments (code, English terms) inside Hebrew text. */
+.ltr { direction: ltr; unicode-bidi: isolate; }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border-radius: var(--radius);
+}
+
+::selection { background: var(--highlight-tint); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
