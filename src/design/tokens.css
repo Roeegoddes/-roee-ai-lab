@@ -27,6 +27,7 @@
   --vermilion: #cf4424;
   --green: #3a8a2e;
   --slate: #4f6477;
+  --brown: #7d4e2a;
 
   /* Hues — tint (fills, highlighted regions) */
   --blue-tint: #e3ebfa;
@@ -35,6 +36,7 @@
   --vermilion-tint: #fbe4dd;
   --green-tint: #e3f1de;
   --slate-tint: #e4e9ee;
+  --brown-tint: #efe2d5;
 
   /* Roles */
   --interactive: var(--blue);          /* things you can click / drag */

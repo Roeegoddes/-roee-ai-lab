@@ -4,9 +4,11 @@
 }
 
 .lesson-body {
-  max-width: var(--measure);
   display: grid;
   gap: var(--space-4);
 }
+
+/* Prose keeps a readable width; interactive stages use the full width. */
+.lesson-body > p { max-width: var(--measure); }
 
 .lesson-loading { color: var(--ink-3); }
