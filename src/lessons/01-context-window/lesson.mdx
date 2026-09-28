@@ -1,32 +1,3 @@
-import { Exhibit, Stage } from './Exhibit'
-import { WhatModelSees } from './S1WhatModelSees'
-import { ContextMeter } from './S2ContextMeter'
-import { Strategies } from './S3Strategies'
-import { MoreIsNotBetter } from './S4MoreIsNotBetter'
-import { TrainingContextMemory } from './S5TrainingContextMemory'
-import { Checkpoint } from './S6Checkpoint'
-import { MentalModel } from './S7MentalModel'
+import { Film } from './film/Film'
 
-<Exhibit>
-  <Stage title="מה המודל רואה">
-    <WhatModelSees />
-  </Stage>
-  <Stage title="חלון של 100K">
-    <ContextMeter />
-  </Stage>
-  <Stage title="לפנות מקום">
-    <Strategies />
-  </Stage>
-  <Stage title="יותר זה לא בהכרח טוב יותר">
-    <MoreIsNotBetter />
-  </Stage>
-  <Stage title="אימון, Context וזיכרון">
-    <TrainingContextMemory />
-  </Stage>
-  <Stage title="תרחיש">
-    <Checkpoint />
-  </Stage>
-  <Stage title="התמונה המלאה">
-    <MentalModel />
-  </Stage>
-</Exhibit>
+<Film />

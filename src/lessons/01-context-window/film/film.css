@@ -1,0 +1,163 @@
+/* Context Window film. Colors come from the design tokens; one hue per source. */
+.fw { display: grid; gap: var(--space-3); }
+
+.fw-stage {
+  position: relative;
+  width: 100%;
+  max-height: 78vh;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #f7f6f1;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 var(--rule), 0 20px 50px -38px rgb(22 24 29 / 0.5);
+}
+.fw-camera { position: absolute; inset: 0; will-change: transform; }
+.fw-svg { display: block; width: 100%; height: 100%; overflow: visible; direction: rtl; font-family: var(--font-sans); }
+
+.fw-bigplay {
+  position: absolute;
+  inset-block-end: 20px;
+  inset-inline-start: 20px;
+  width: 64px;
+  height: 64px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -12px rgb(0 0 0 / 0.5);
+}
+
+/* tokens: one object, one color per source */
+.fw-tok { transition: fill 0.5s, stroke 0.5s, stroke-width 0.5s; stroke-width: 0; }
+.fw-tok.sys { fill: var(--slate); }
+.fw-tok.hist { fill: var(--teal); }
+.fw-tok.file { fill: var(--amber); }
+.fw-tok.tool { fill: var(--green); }
+.fw-tok.msg { fill: var(--blue); }
+.fw-tok.doc { fill: var(--brown); }
+.fw-tok.noise, .fw-tok.gone { fill: #cfd1d4; }
+.fw-tok.dup { fill: var(--amber-tint); stroke: var(--amber); stroke-width: 4; stroke-dasharray: 7 5; }
+.fw-tok.old { fill: #d9c7b6; }
+.fw-tok.conflict { fill: var(--vermilion-tint); stroke: var(--vermilion); stroke-width: 5; }
+.fw-tok.over { stroke: var(--vermilion); stroke-width: 6; }
+.fw-tok.dense { stroke: #0a4d45; stroke-width: 9; }
+.fw-tok.hl { stroke: var(--ink); stroke-width: 6; }
+
+/* windows */
+.fw-frame-bg { fill: #ffffff; }
+.fw-frame-static { stroke: var(--ink-2); stroke-width: 3; }
+.fw-frame { fill: none; stroke: var(--ink); stroke-width: 4; }
+.fw-alert { fill: var(--vermilion); }
+.fw-over { font-family: var(--font-mono); font-size: 44px; font-weight: 500; fill: var(--vermilion); direction: ltr; }
+.fw-label { font-family: var(--font-mono); font-size: 26px; letter-spacing: 0.12em; fill: var(--ink-2); text-anchor: middle; }
+.fw-under { font-size: 44px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+
+/* cards */
+.fw-card { fill: #fff; stroke-width: 3; }
+.fw-card.sys { stroke: var(--slate); fill: var(--slate-tint); }
+.fw-card.hist { stroke: var(--teal); fill: var(--teal-tint); }
+.fw-card.file { stroke: var(--amber); fill: var(--amber-tint); }
+.fw-card.tool { stroke: var(--green); fill: var(--green-tint); }
+.fw-card.msg { stroke: var(--blue); fill: var(--blue-tint); }
+.fw-card-edge.sys { fill: var(--slate); }
+.fw-card-edge.hist { fill: var(--teal); }
+.fw-card-edge.file { fill: var(--amber); }
+.fw-card-edge.tool { fill: var(--green); }
+.fw-card-edge.msg { fill: var(--blue); }
+.fw-card-text { font-size: 30px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.fw-card-text.is-small { font-size: 24px; }
+
+.fw-doc { fill: var(--brown-tint); stroke: var(--brown); stroke-width: 4; transition: fill-opacity 0.5s; }
+.fw-doc.is-empty { fill-opacity: 0.2; stroke-dasharray: 10 8; }
+.fw-doc-line { fill: var(--brown); opacity: 0.35; }
+.fw-doc-title { font-size: 28px; font-weight: 600; fill: var(--brown); text-anchor: middle; }
+.fw-page { fill: #fff; stroke: var(--brown); stroke-width: 2; }
+.fw-page.is-rel { stroke: var(--ink); stroke-width: 4; fill: var(--highlight-tint); }
+.fw-scan { fill: var(--highlight); }
+
+.fw-legend { font-size: 22px; fill: var(--ink-2); text-anchor: start; }
+.fw-ghost { fill: none; stroke: var(--rule-strong); stroke-width: 2; stroke-dasharray: 8 7; }
+.fw-ghost-text { font-size: 24px; fill: var(--ink-3); text-anchor: middle; }
+
+.fw-flow { fill: none; stroke: var(--ink-3); stroke-width: 3; stroke-dasharray: 10 10; }
+.fw-flow.is-flowing { animation: fw-dash 0.8s linear infinite; }
+@keyframes fw-dash { to { stroke-dashoffset: 20; } }
+
+/* model */
+.fw-model { fill: var(--ink); }
+.fw-w { transition: fill 0.8s; }
+.fw-w.s0 { fill: #e9e7e0; }
+.fw-w.s1 { fill: #a9aaa8; }
+.fw-w.s2 { fill: #6d7079; }
+.fw-w.s3 { fill: #43464f; }
+.fw-model-label { font-size: 32px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.fw-tag { font-family: var(--font-mono); font-size: 22px; fill: var(--ink-2); text-anchor: middle; }
+
+/* scene 9 */
+.fw-drawer { fill: var(--surface-sunken); stroke: var(--ink-2); stroke-width: 3; stroke-dasharray: 12 8; }
+.fw-drawer-title { font-family: var(--font-mono); font-size: 30px; font-weight: 500; fill: var(--ink); text-anchor: middle; }
+.fw-drawer-sub { font-size: 20px; fill: var(--ink-2); text-anchor: middle; }
+.fw-band { fill: var(--slate-tint); stroke: var(--slate); stroke-width: 3; }
+.fw-band-title { font-size: 30px; font-weight: 600; fill: var(--slate); text-anchor: start; }
+.fw-band-sub { font-size: 22px; fill: var(--ink-2); text-anchor: start; }
+.fw-data { fill: var(--slate); opacity: 0.45; animation: fw-pulse 2.2s ease-in-out infinite; }
+@keyframes fw-pulse { 50% { opacity: 1; } }
+.fw-band-link { fill: none; stroke: var(--slate); stroke-width: 4; }
+.fw-blocked { fill: none; stroke: var(--vermilion); stroke-width: 4; stroke-dasharray: 10 8; }
+.fw-x-bg { fill: #fff; stroke: var(--vermilion); stroke-width: 4; }
+.fw-x { stroke: var(--vermilion); stroke-width: 5; stroke-linecap: round; }
+
+/* final statement */
+.fw-final {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  padding: 5% 6% 0;
+  display: grid;
+  gap: 0.6em;
+  pointer-events: none;
+}
+.fw-final-main { margin: 0; font-size: clamp(1.05rem, 2.6vw, 2rem); font-weight: 600; line-height: 1.35; text-wrap: balance; display: flex; flex-wrap: wrap; gap: 0 0.4em; }
+.fw-final-term { font-family: var(--font-mono); font-weight: 500; }
+.fw-final-eq { color: var(--ink-3); }
+.fw-final-next { margin: 0; font-size: clamp(0.9rem, 1.6vw, 1.2rem); color: var(--ink-2); }
+
+/* captions + controls */
+.fw-caption { min-height: 3.6em; text-align: center; }
+.fw-caption-main { margin: 0; font-size: clamp(1.1rem, 2.2vw, 1.5rem); font-weight: 600; line-height: 1.35; }
+.fw-caption-note { margin: 0.2em 0 0; font-size: var(--text-sm); color: var(--ink-2); }
+
+.fw-bar { display: flex; align-items: center; gap: var(--space-3); }
+.fw-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 14px;
+}
+.fw-btn:hover { border-color: var(--ink); }
+.fw-track { position: relative; flex: 1; height: 24px; cursor: pointer; }
+.fw-track::before { content: ''; position: absolute; inset-inline: 0; inset-block-start: 10px; height: 4px; background: var(--rule); }
+.fw-track-fill { position: absolute; inset-inline-start: 0; inset-block-start: 10px; height: 4px; background: var(--ink); }
+.fw-track-tick { position: absolute; inset-block-start: 6px; width: 2px; height: 12px; background: var(--ink-3); }
+.fw-time { font-size: var(--text-xs); color: var(--ink-2); white-space: nowrap; }
+
+.fw-chapters { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); }
+.fw-chapters button { background: none; border: 0; padding: var(--space-1) 0; cursor: pointer; font-size: var(--text-sm); color: var(--ink-2); display: inline-flex; gap: var(--space-2); align-items: baseline; border-block-end: 2px solid transparent; }
+.fw-chapters button .num { font-size: var(--text-xs); color: var(--ink-3); }
+.fw-chapters button[aria-current] { color: var(--ink); border-color: var(--ink); }
+
+.fw-script { font-size: var(--text-sm); color: var(--ink-2); }
+.fw-script summary { cursor: pointer; }
+.fw-script ol { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: grid; gap: var(--space-2); max-width: var(--measure); }
+.fw-script li { display: grid; grid-template-columns: 3.2rem 1fr; gap: var(--space-2); }
+.fw-script li button { background: none; border: 0; padding: 0; color: var(--interactive); cursor: pointer; text-align: start; font-size: var(--text-xs); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-flow.is-flowing, .fw-data { animation: none; }
+}
