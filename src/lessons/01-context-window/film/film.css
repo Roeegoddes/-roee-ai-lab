@@ -7,7 +7,7 @@
   max-height: 78vh;
   margin-inline: auto;
   overflow: hidden;
-  background: #f7f6f1;
+  background: radial-gradient(ellipse at 50% 38%, #ebe6dc 0%, #e1dbcf 60%, #d6cfc1 100%);
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 1px 0 var(--rule), 0 20px 50px -38px rgb(22 24 29 / 0.5);
@@ -30,92 +30,90 @@
   box-shadow: 0 10px 24px -12px rgb(0 0 0 / 0.5);
 }
 
-/* tokens: one object, one color per source */
-.fw-tok { transition: fill 0.5s, stroke 0.5s, stroke-width 0.5s; stroke-width: 0; }
-.fw-tok.sys { fill: var(--slate); }
-.fw-tok.hist { fill: var(--teal); }
-.fw-tok.file { fill: var(--amber); }
-.fw-tok.tool { fill: var(--green); }
-.fw-tok.msg { fill: var(--blue); }
-.fw-tok.doc { fill: var(--brown); }
-.fw-tok.noise, .fw-tok.gone { fill: #cfd1d4; }
-.fw-tok.dup { fill: var(--amber-tint); stroke: var(--amber); stroke-width: 4; stroke-dasharray: 7 5; }
-.fw-tok.old { fill: #d9c7b6; }
-.fw-tok.conflict { fill: var(--vermilion-tint); stroke: var(--vermilion); stroke-width: 5; }
-.fw-tok.over { stroke: var(--vermilion); stroke-width: 6; }
-.fw-tok.dense { stroke: #0a4d45; stroke-width: 9; }
-.fw-tok.hl { stroke: var(--ink); stroke-width: 6; }
+/* ---------- art: a table in soft shadow, light from the lens ---------- */
+.fw-chip { --c: var(--ink-3); --t: #fff; }
+.fw-chip.sys { --c: var(--slate); }
+.fw-chip.hist { --c: var(--teal); }
+.fw-chip.file { --c: var(--amber); --t: #2d2205; }
+.fw-chip.tool { --c: var(--green); }
+.fw-chip.msg { --c: var(--blue); }
+.fw-chip.doc { --c: var(--brown); }
+.fw-chip.noise { --c: #c3c0b8; --t: #55524b; }
+.fw-chip.gone { --c: #b9b5ad; --t: #6b675f; }
+.fw-chip.old { --c: #d8c5b2; --t: #6b5440; }
+.fw-chip-body { fill: var(--c); transition: fill 0.6s, stroke 0.6s, stroke-width 0.6s; stroke-width: 0; }
+.fw-chip-text { font-family: var(--font-mono); font-size: 15px; fill: var(--t); text-anchor: middle; direction: ltr; unicode-bidi: plaintext; pointer-events: none; }
+.fw-chip.dup .fw-chip-body { fill: var(--amber-tint); stroke: var(--amber); stroke-width: 3; stroke-dasharray: 6 4; }
+.fw-chip.dup { --t: #6d5410; }
+.fw-chip.old .fw-chip-text { text-decoration: line-through; }
+.fw-chip.conflict .fw-chip-body { fill: var(--vermilion-tint); stroke: var(--vermilion); stroke-width: 4; }
+.fw-chip.conflict { --t: var(--vermilion); }
+.fw-chip.over .fw-chip-body { stroke: var(--vermilion); stroke-width: 4; }
+.fw-chip.dense .fw-chip-body { stroke: #073f38; stroke-width: 6; }
+.fw-chip.hl .fw-chip-body { stroke: var(--ink); stroke-width: 4; }
 
-/* windows */
-.fw-frame-bg { fill: #ffffff; }
-.fw-frame-static { stroke: var(--ink-2); stroke-width: 3; }
-.fw-frame { fill: none; stroke: var(--ink); stroke-width: 4; }
-.fw-alert { fill: var(--vermilion); }
-.fw-over { font-family: var(--font-mono); font-size: 44px; font-weight: 500; fill: var(--vermilion); direction: ltr; }
-.fw-label { font-family: var(--font-mono); font-size: 26px; letter-spacing: 0.12em; fill: var(--ink-2); text-anchor: middle; }
-.fw-under { font-size: 44px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.fw-pool { fill: url(#fw-light); stroke: rgb(120 100 60 / 0.18); stroke-width: 2; }
+.fw-pool-halo { fill: #fffaf0; opacity: 0.55; }
+.fw-pool-rule { stroke: rgb(120 100 60 / 0.09); stroke-width: 1.5; }
+.fw-pool-edge { fill: none; stroke: var(--vermilion); stroke-width: 6; stroke-linecap: round; }
+.fw-pool-label { font-family: var(--font-mono); font-size: 22px; letter-spacing: 0.16em; fill: #6f6656; text-anchor: middle; }
+.fw-beam { fill: url(#fw-beam); }
+.fw-under { font-size: 42px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
 
-/* cards */
-.fw-card { fill: #fff; stroke-width: 3; }
-.fw-card.sys { stroke: var(--slate); fill: var(--slate-tint); }
-.fw-card.hist { stroke: var(--teal); fill: var(--teal-tint); }
-.fw-card.file { stroke: var(--amber); fill: var(--amber-tint); }
-.fw-card.tool { stroke: var(--green); fill: var(--green-tint); }
-.fw-card.msg { stroke: var(--blue); fill: var(--blue-tint); }
-.fw-card-edge.sys { fill: var(--slate); }
-.fw-card-edge.hist { fill: var(--teal); }
-.fw-card-edge.file { fill: var(--amber); }
-.fw-card-edge.tool { fill: var(--green); }
-.fw-card-edge.msg { fill: var(--blue); }
-.fw-card-text { font-size: 30px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
-.fw-card-text.is-small { font-size: 24px; }
+.fw-lens-rim { fill: #d9d3c6; stroke: #2a2721; stroke-width: 5; }
+.fw-lens { fill: #23252b; }
+.fw-facet { transition: fill 1.2s; }
+.fw-facet.f0 { fill: #e9e2d2; }
+.fw-facet.f1 { fill: #b3ab9b; }
+.fw-facet.f2 { fill: #7b766d; }
+.fw-facet.f3 { fill: #4c4a47; }
+.fw-lens-label { font-size: 34px; font-weight: 600; fill: var(--ink); text-anchor: start; }
+.fw-tag { font-family: var(--font-mono); font-size: 20px; fill: #5d5648; text-anchor: start; }
 
-.fw-doc { fill: var(--brown-tint); stroke: var(--brown); stroke-width: 4; transition: fill-opacity 0.5s; }
-.fw-doc.is-empty { fill-opacity: 0.2; stroke-dasharray: 10 8; }
-.fw-doc-line { fill: var(--brown); opacity: 0.35; }
-.fw-doc-title { font-size: 28px; font-weight: 600; fill: var(--brown); text-anchor: middle; }
-.fw-page { fill: #fff; stroke: var(--brown); stroke-width: 2; }
-.fw-page.is-rel { stroke: var(--ink); stroke-width: 4; fill: var(--highlight-tint); }
+.fw-paper { filter: drop-shadow(0 8px 10px rgb(60 45 20 / 0.16)); }
+.fw-slip { fill: #fffefb; stroke: rgb(60 45 20 / 0.12); stroke-width: 1.5; }
+.fw-slip-tab.sys { fill: var(--slate); }
+.fw-slip-tab.hist { fill: var(--teal); }
+.fw-slip-tab.file { fill: var(--amber); }
+.fw-slip-tab.tool { fill: var(--green); }
+.fw-slip-tab.msg { fill: var(--blue); }
+.fw-slip-text { font-size: 28px; font-weight: 600; fill: var(--ink); text-anchor: start; }
+.fw-slip-text.is-msg { font-size: 25px; fill: #17357c; }
+.fw-slip-text.is-small { font-size: 21px; fill: #17357c; }
+
+.fw-doc { fill: #fbf3ea; stroke: var(--brown); stroke-width: 2.5; transition: fill-opacity 0.6s, stroke-opacity 0.6s; }
+.fw-doc.is-empty { fill-opacity: 0.25; stroke-opacity: 0.45; stroke-dasharray: 8 7; }
+.fw-doc-line { fill: var(--brown); opacity: 0.3; }
+.fw-doc-title { font-size: 26px; font-weight: 600; fill: var(--brown); text-anchor: start; }
+.fw-page { fill: #fffdf8; stroke: rgb(125 78 42 / 0.5); stroke-width: 2; }
+.fw-page.is-rel { stroke: var(--ink); stroke-width: 3; fill: var(--highlight-tint); }
 .fw-scan { fill: var(--highlight); }
 
-.fw-legend { font-size: 22px; fill: var(--ink-2); text-anchor: start; }
-.fw-ghost { fill: none; stroke: var(--rule-strong); stroke-width: 2; stroke-dasharray: 8 7; }
-.fw-ghost-text { font-size: 24px; fill: var(--ink-3); text-anchor: middle; }
-
-.fw-flow { fill: none; stroke: var(--ink-3); stroke-width: 3; stroke-dasharray: 10 10; }
-.fw-flow.is-flowing { animation: fw-dash 0.8s linear infinite; }
-@keyframes fw-dash { to { stroke-dashoffset: 20; } }
-
-/* model */
-.fw-model { fill: var(--ink); }
-.fw-w { transition: fill 0.8s; }
-.fw-w.s0 { fill: #e9e7e0; }
-.fw-w.s1 { fill: #a9aaa8; }
-.fw-w.s2 { fill: #6d7079; }
-.fw-w.s3 { fill: #43464f; }
-.fw-model-label { font-size: 32px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
-.fw-tag { font-family: var(--font-mono); font-size: 22px; fill: var(--ink-2); text-anchor: middle; }
+.fw-legend { font-size: 21px; fill: #5d5648; text-anchor: start; }
+.fw-ghost { fill: #d5cfc2; stroke: #c4bdae; stroke-width: 1.5; }
+.fw-ghost-text { font-size: 22px; fill: #8b8476; text-anchor: middle; }
 
 /* scene 9 */
-.fw-drawer { fill: var(--surface-sunken); stroke: var(--ink-2); stroke-width: 3; stroke-dasharray: 12 8; }
-.fw-drawer-title { font-family: var(--font-mono); font-size: 30px; font-weight: 500; fill: var(--ink); text-anchor: middle; }
-.fw-drawer-sub { font-size: 20px; fill: var(--ink-2); text-anchor: middle; }
-.fw-band { fill: var(--slate-tint); stroke: var(--slate); stroke-width: 3; }
-.fw-band-title { font-size: 30px; font-weight: 600; fill: var(--slate); text-anchor: start; }
-.fw-band-sub { font-size: 22px; fill: var(--ink-2); text-anchor: start; }
-.fw-data { fill: var(--slate); opacity: 0.45; animation: fw-pulse 2.2s ease-in-out infinite; }
-@keyframes fw-pulse { 50% { opacity: 1; } }
-.fw-band-link { fill: none; stroke: var(--slate); stroke-width: 4; }
+.fw-box { fill: #d6d0c3; stroke: #a69e8e; stroke-width: 2; }
+.fw-box-well { fill: #c9c2b3; }
+.fw-box-title { font-size: 28px; font-weight: 600; fill: #3c372e; text-anchor: start; }
+.fw-box-sub { font-size: 20px; fill: #5d5648; text-anchor: start; }
+.fw-lane { fill: #dfe3e6; stroke: var(--slate); stroke-width: 2.5; stroke-dasharray: 12 8; }
+.fw-lane-title { font-size: 28px; font-weight: 600; fill: var(--slate); text-anchor: start; }
+.fw-lane-sub { font-size: 20px; fill: #4c5866; text-anchor: start; }
+.fw-data { fill: var(--slate); opacity: 0.35; animation: fw-pulse 2.4s ease-in-out infinite; }
+@keyframes fw-pulse { 50% { opacity: 0.9; } }
+.fw-lane-link { fill: none; stroke: var(--slate); stroke-width: 4; stroke-dasharray: 2 9; stroke-linecap: round; }
 .fw-blocked { fill: none; stroke: var(--vermilion); stroke-width: 4; stroke-dasharray: 10 8; }
-.fw-x-bg { fill: #fff; stroke: var(--vermilion); stroke-width: 4; }
+.fw-x-bg { fill: #fffdf6; stroke: var(--vermilion); stroke-width: 4; }
 .fw-x { stroke: var(--vermilion); stroke-width: 5; stroke-linecap: round; }
 
 /* final statement */
 .fw-final {
   position: absolute;
   inset-inline: 0;
-  inset-block-start: 0;
-  padding: 5% 6% 0;
+  inset-block-end: 0;
+  padding: 0 6% 4%;
   display: grid;
   gap: 0.6em;
   pointer-events: none;
@@ -159,5 +157,5 @@
 .fw-script li button { background: none; border: 0; padding: 0; color: var(--interactive); cursor: pointer; text-align: start; font-size: var(--text-xs); }
 
 @media (prefers-reduced-motion: reduce) {
-  .fw-flow.is-flowing, .fw-data { animation: none; }
+  .fw-data { animation: none; }
 }
